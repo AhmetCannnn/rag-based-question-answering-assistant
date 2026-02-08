@@ -6,7 +6,7 @@
 
 ## English
 
-**[→ Live Demo](https://YOUR_DEMO_URL)** — Try it here.
+**[→ Live Demo](http://z8co4ggwgsgk0osogk4c0cc4.46.224.148.40.sslip.io/)** — Try it here.
 
 RAG (Retrieval-Augmented Generation) based question-answering assistant. Upload PDFs/text files or add URLs (Wikipedia, Stack Overflow), then ask questions and get answers grounded only in those sources.
 
@@ -73,7 +73,7 @@ Frontend runs at `http://localhost:5173`, backend at `http://localhost:8001`.
 
 ## Türkçe
 
-**[→ Canlı demo](https://YOUR_DEMO_URL)** — Buradan deneyebilirsiniz.
+**[→ Canlı demo](http://z8co4ggwgsgk0osogk4c0cc4.46.224.148.40.sslip.io/)** — Buradan deneyebilirsiniz.
 
 RAG (Retrieval-Augmented Generation) tabanlı soru-cevap asistanı. PDF/metin yükleyebilir veya URL ekleyebilirsiniz (Wikipedia, Stack Overflow); sorularınız yalnızca bu kaynaklara dayalı yanıtlanır.
 
