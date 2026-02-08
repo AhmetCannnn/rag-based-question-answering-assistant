@@ -40,10 +40,10 @@ RAG (Retrieval-Augmented Generation) tabanlı soru-cevap asistanı. Yüklediğin
 
 Kod iki ayrı repo’da tutulmaktadır:
 
-| Repo | Açıklama |
-|------|----------|
-| [**Backend**](https://github.com/AhmetCannnn/answer_question_bot_backend) | FastAPI, pgvector, embedding ve QA API’leri |
-| [**Frontend**](https://github.com/AhmetCannnn/answer_question_bot_frontend) | React arayüzü |
+| Repo | Açıklama | URL |
+|------|----------|-----|
+| **Backend** | FastAPI, pgvector, embedding ve QA API’leri | [answer_question_bot_backend](https://github.com/AhmetCannnn/answer_question_bot_backend) |
+| **Frontend** | React arayüzü | [answer_question_bot_frontend](https://github.com/AhmetCannnn/answer_question_bot_frontend) |
 
 ---
 
