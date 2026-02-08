@@ -1,53 +1,51 @@
 # RAG-Based Question-Answering Assistant
 
-RAG (Retrieval-Augmented Generation) tabanlı soru-cevap asistanı. Yüklediğiniz PDF/metin dosyaları ve eklediğiniz URL’ler (Wikipedia, Stack Overflow) üzerinden soru sorup yalnızca o kaynaklara dayalı cevap alırsınız.
-
-| Ana sayfa | Belge/URL yükleme ve sohbet | Kaynak gösterimli cevaplar |
-|-----------|-----------------------------|----------------------------|
-| ![Ana sayfa](assets/screenshot0.png) | ![Belge ve URL](assets/screenshot1.png) | ![Sohbet ve kaynaklar](assets/screenshot2.png) |
+[🇹🇷 Türkçe](#türkçe) · [🇬🇧 English](#english)
 
 ---
 
-## Öne çıkan özellikler
+## English
 
-- **Çoklu kaynak:** PDF, TXT, DOCX yükleme ve Wikipedia / Stack Overflow URL’leri ekleme
-- **RAG pipeline:** Metinler parçalara ayrılır, embedding üretilir, pgvector ile semantik arama yapılır
-- **Çoklu model:** Sohbet için OpenAI (GPT) veya Gemini; embedding için OpenAI veya Gemini
-- **Session tabanlı:** Tarayıcı oturumunda sohbet ve kaynaklar saklanır
+**[→ Live Demo](https://YOUR_DEMO_URL)** — Try it here.
 
----
+RAG (Retrieval-Augmented Generation) based question-answering assistant. Upload PDFs/text files or add URLs (Wikipedia, Stack Overflow), then ask questions and get answers grounded only in those sources.
 
-## Teknoloji yığını
+| Home | Upload & chat | Answers with sources |
+|------|----------------|----------------------|
+| ![Home](assets/screenshot0.png) | ![Upload](assets/screenshot1.png) | ![Chat](assets/screenshot2.png) |
 
-| Katman      | Teknolojiler |
-|------------|--------------|
-| Backend    | Python, FastAPI, PostgreSQL + pgvector, OpenAI API, Google Gemini |
-| Frontend   | React, Vite |
-| Embedding  | OpenAI (text-embedding-ada-002, text-embedding-3-small), Gemini (models/gemini-embedding-001) |
+### Features
 
----
+- **Multiple sources:** PDF, TXT, DOCX upload and Wikipedia / Stack Overflow URLs
+- **RAG pipeline:** Text chunking, embeddings, semantic search with pgvector
+- **Dual providers:** OpenAI (GPT) or Gemini for chat; OpenAI or Gemini for embeddings
+- **Session-based:** Chat and sources kept in browser session
 
-## Sistem nasıl çalışıyor?
+### Tech stack
 
-1. **Kaynak girişi:** Kullanıcı PDF/URL ekler.
-2. **İşleme:** Metinler chunk’lanır, embedding API ile vektörlere dönüştürülür, pgvector’e yazılır.
-3. **Sorgu:** Kullanıcı soru sorar; soru da embed edilir, pgvector’de benzerlik araması yapılır.
-4. **Cevap:** En alakalı chunk’lar LLM’e context olarak gönderilir; model yalnızca bu bağlama dayalı cevap üretir.
+| Layer    | Technologies |
+|----------|--------------|
+| Backend  | Python, FastAPI, PostgreSQL + pgvector, OpenAI API, Google Gemini |
+| Frontend | React, Vite |
+| Embedding| OpenAI (text-embedding-ada-002, text-embedding-3-small), Gemini (models/gemini-embedding-001) |
 
----
+### How it works
 
-## Proje yapısı
+1. **Input:** User adds PDF/URL.
+2. **Processing:** Text is chunked, embedded via API, stored in pgvector.
+3. **Query:** User asks a question; question is embedded and similarity search runs in pgvector.
+4. **Answer:** Top chunks are sent to the LLM as context; the model answers only from that context.
 
-Kod iki ayrı repo’da tutulmaktadır:
+### Project structure
 
-| Repo | Açıklama | URL |
-|------|----------|-----|
-| **Backend** | FastAPI, pgvector, embedding ve QA API’leri | [answer_question_bot_backend](https://github.com/AhmetCannnn/answer_question_bot_backend) |
-| **Frontend** | React arayüzü | [answer_question_bot_frontend](https://github.com/AhmetCannnn/answer_question_bot_frontend) |
+Code lives in two repositories:
 
----
+| Repo      | Description | URL |
+|-----------|-------------|-----|
+| **Backend**  | FastAPI, pgvector, embedding & QA APIs | [answer_question_bot_backend](https://github.com/AhmetCannnn/answer_question_bot_backend) |
+| **Frontend** | React UI | [answer_question_bot_frontend](https://github.com/AhmetCannnn/answer_question_bot_frontend) |
 
-## Kurulum (yerel)
+### Local setup
 
 **Backend**
 
@@ -55,8 +53,8 @@ Kod iki ayrı repo’da tutulmaktadır:
 git clone https://github.com/AhmetCannnn/answer_question_bot_backend.git
 cd answer_question_bot_backend
 pip install -r requirements.txt
-# .env dosyasını oluşturup DATABASE_URL vb. doldur
-# Veritabanı: db/schema.sql ve db/seed_models.sql çalıştır
+# Create .env with DATABASE_URL etc.
+# Run db/schema.sql and db/seed_models.sql
 uvicorn app:app --reload --port 8001
 ```
 
@@ -69,4 +67,71 @@ npm install
 npm run dev
 ```
 
-Frontend varsayılan olarak `http://localhost:5173`, backend’i `http://localhost:8001` üzerinden kullanır.
+Frontend runs at `http://localhost:5173`, backend at `http://localhost:8001`.
+
+---
+
+## Türkçe
+
+**[→ Canlı demo](https://YOUR_DEMO_URL)** — Buradan deneyebilirsiniz.
+
+RAG (Retrieval-Augmented Generation) tabanlı soru-cevap asistanı. PDF/metin yükleyebilir veya URL ekleyebilirsiniz (Wikipedia, Stack Overflow); sorularınız yalnızca bu kaynaklara dayalı yanıtlanır.
+
+| Ana sayfa | Belge/URL yükleme ve sohbet | Kaynak gösterimli cevaplar |
+|-----------|-----------------------------|----------------------------|
+| ![Ana sayfa](assets/screenshot0.png) | ![Belge ve URL](assets/screenshot1.png) | ![Sohbet ve kaynaklar](assets/screenshot2.png) |
+
+### Öne çıkan özellikler
+
+- **Çoklu kaynak:** PDF, TXT, DOCX yükleme ve Wikipedia / Stack Overflow URL’leri
+- **RAG pipeline:** Metin chunk’lama, embedding, pgvector ile semantik arama
+- **İki sağlayıcı:** Sohbet için OpenAI (GPT) veya Gemini; embedding için OpenAI veya Gemini
+- **Session tabanlı:** Sohbet ve kaynaklar tarayıcı oturumunda saklanır
+
+### Teknoloji yığını
+
+| Katman   | Teknolojiler |
+|----------|---------------|
+| Backend  | Python, FastAPI, PostgreSQL + pgvector, OpenAI API, Google Gemini |
+| Frontend | React, Vite |
+| Embedding| OpenAI (text-embedding-ada-002, text-embedding-3-small), Gemini (models/gemini-embedding-001) |
+
+### Sistem nasıl çalışıyor?
+
+1. **Giriş:** Kullanıcı PDF/URL ekler.
+2. **İşleme:** Metin chunk’lanır, embedding API ile vektörlenir, pgvector’e yazılır.
+3. **Sorgu:** Kullanıcı soru sorar; soru embed edilir, pgvector’de benzerlik araması yapılır.
+4. **Cevap:** En alakalı chunk’lar LLM’e context olarak gider; model yalnızca bu bağlama dayalı cevap üretir.
+
+### Proje yapısı
+
+Kod iki ayrı repo’da:
+
+| Repo       | Açıklama | URL |
+|------------|----------|-----|
+| **Backend**  | FastAPI, pgvector, embedding ve QA API’leri | [answer_question_bot_backend](https://github.com/AhmetCannnn/answer_question_bot_backend) |
+| **Frontend** | React arayüzü | [answer_question_bot_frontend](https://github.com/AhmetCannnn/answer_question_bot_frontend) |
+
+### Kurulum (yerel)
+
+**Backend**
+
+```bash
+git clone https://github.com/AhmetCannnn/answer_question_bot_backend.git
+cd answer_question_bot_backend
+pip install -r requirements.txt
+# .env oluşturup DATABASE_URL vb. doldur
+# db/schema.sql ve db/seed_models.sql çalıştır
+uvicorn app:app --reload --port 8001
+```
+
+**Frontend**
+
+```bash
+git clone https://github.com/AhmetCannnn/answer_question_bot_frontend.git
+cd answer_question_bot_frontend
+npm install
+npm run dev
+```
+
+Frontend `http://localhost:5173`, backend `http://localhost:8001` üzerinde çalışır.
